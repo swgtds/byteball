@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-interface HighlightsCardProps {
-  highlights: { day: string; videoUrl: string; thumbnail: string }[];
-  currentIndex: number;
-  onArrowClick: (direction: 'left' | 'right') => void;
+interface Highlight {
+  day: string;
+  videoUrl: string;
+  thumbnail: string;
 }
 
-const HighlightsCard: React.FC<HighlightsCardProps> = ({
-  highlights,
-  currentIndex,
-  onArrowClick,
-}) => {
+interface HighlightsCardProps {
+  highlights: Highlight[];
+}
+
+const HighlightsCard: React.FC<HighlightsCardProps> = ({ highlights }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Function to handle arrow clicks
+  const onArrowClick = (direction: 'left' | 'right') => {
+    if (direction === 'left') {
+      setCurrentIndex((prevIndex) => (prevIndex === 0 ? highlights.length - 1 : prevIndex - 1));
+    } else {
+      setCurrentIndex((prevIndex) => (prevIndex === highlights.length - 1 ? 0 : prevIndex + 1));
+    }
+  };
+
   return (
     <div style={styles.card}>
       <h2>Test 1 Highlights</h2>
