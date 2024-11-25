@@ -1,4 +1,3 @@
-// src/components/LiveStreamCard.tsx
 import React, { useState } from 'react';
 
 const LiveStreamCard: React.FC<{ title: string; children?: React.ReactNode; redirectTo?: string }> = ({ title, children, redirectTo }) => {
@@ -13,58 +12,79 @@ const LiveStreamCard: React.FC<{ title: string; children?: React.ReactNode; redi
 
   return (
     <div style={styles.card}>
-      <h3>{title}</h3>
-      {/* Render the thumbnail image or other children passed */}
+      <h3 style={styles.title}>{title}</h3>
       <div
         style={{
           ...styles.thumbnailContainer,
           ...(isHovered ? styles.thumbnailHover : {}),
         }}
-        onClick={handleThumbnailClick} // Click handler for redirection
+        onClick={handleThumbnailClick} 
       >
         {children}
       </div>
-      <button style={styles.button} onClick={() => window.location.href = redirectTo}>Watch Now</button>
+      <a href={redirectTo} target="_blank" rel="noopener noreferrer" style={styles.button}>Watch Now</a>
     </div>
   );
 };
 
 const styles = {
   card: {
-    border: '1px solid #ccc',
-    padding: '10px',
-    margin: '10px',
+    width: '90%',  
+    maxWidth: '350px',  
+    padding: '15px',
+    margin: '10px auto',  
     borderRadius: '8px',
-    boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
-    background: 'linear-gradient(to right, #ff9a8b, #ffb67c)', // Lighter gradient for LiveStreamCard
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    background: 'linear-gradient(to right, #8BC6EC, #9599E2)', //change gradient  color
     textAlign: 'center',
+    overflow: 'hidden',
+  },
+  title: {
+    fontSize: '18px',
+    fontWeight: 'bold',
+    marginBottom: '15px',
   },
   button: {
+    display: 'inline-block',
+    padding: '10px 15px',
     backgroundColor: '#007BFF',
     color: 'white',
-    padding: '5px 10px',
-    border: 'none',
+    textDecoration: 'none',
     borderRadius: '5px',
-    cursor: 'pointer',
+    fontSize: '16px',
     marginTop: '15px',
   },
   thumbnailContainer: {
     marginTop: '15px',
     display: 'flex',
     justifyContent: 'center',
-    cursor: 'pointer', // Indicates the thumbnail is clickable
+    cursor: 'pointer', 
     transition: 'all 0.3s ease-in-out',
+    maxWidth: '100%',
+    overflow: 'hidden',
   },
   thumbnail: {
-    width: '300px',
+    width: '100%',  
     height: 'auto',
     borderRadius: '8px',
     boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
     transition: 'transform 0.3s ease, box-shadow 0.3s ease',
   },
   thumbnailHover: {
-    transform: 'scale(1.05)', // Slightly scale the image
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', // Enhance the shadow on hover
+    transform: 'scale(1.05)', 
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', 
+  },
+  '@media screen and (max-width: 768px)': {
+    card: {
+      maxWidth: '100%',  
+      padding: '10px',   
+    },
+    title: {
+      fontSize: '16px',  
+    },
+    button: {
+      fontSize: '14px',  
+    },
   },
 };
 

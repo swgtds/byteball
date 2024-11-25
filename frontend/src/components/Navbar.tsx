@@ -1,58 +1,65 @@
-// src/components/Navbar.tsx
 import React from 'react';
 
 const Navbar: React.FC = () => {
   return (
-    <nav style={styles.navbar}>
-      <div style={styles.logoContainer}>
-        <h1 style={styles.logoText}>ByteBall</h1>
-      </div>
-      <ul style={styles.navLinks}>
-        {/* Only the relevant navigation items will be here */}
-      </ul>
-    </nav>
+    <div style={styles.container}>
+      <p style={styles.text}>
+        Made with ❤️ by{' '}
+        <a
+          href="https://github.com/swgtds"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={styles.githubLink}
+        >
+          swgtds
+        </a>{' '}
+        <a
+          href="https://github.com/swgtds"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={styles.githubLogoLink}
+        >
+          <img
+            src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+            alt="GitHub Logo"
+            style={styles.githubLogo}
+          />
+        </a>
+      </p>
+    </div>
   );
 };
 
 const styles = {
-  navbar: {
+  container: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
-    padding: '10px 20px',
-    background: 'linear-gradient(to right, #ff9a8b, #ffb67c)', // Lighter gradient for navbar
+    padding: '20px',
+    background: 'transparent', 
     position: 'sticky',
     top: 0,
     zIndex: 1000,
   },
-  logoContainer: {
-    flex: 1,
-  },
-  logoText: {
-    color: '#000000', 
-    fontSize: '24px',
+  text: {
+    color: '#000000',
+    fontSize: '18px',
     fontWeight: 'bold',
     margin: 0,
-  },
-  navLinks: {
     display: 'flex',
-    listStyleType: 'none',
-    margin: 0,
-    padding: 0,
+    alignItems: 'center',
   },
-  navItem: {
-    marginLeft: '20px',
-  },
-  navLink: {
-    color: '#ffffff',
+  githubLink: {
+    color: '#000000',
     textDecoration: 'none',
     fontSize: '18px',
-    padding: '10px 15px',
-    borderRadius: '5px',
-    transition: 'background-color 0.3s',
   },
-  navLinkHover: {
-    backgroundColor: 'rgba(0, 188, 212, 0.8)',
+  githubLogoLink: {
+    marginLeft: '8px',
+  },
+  githubLogo: {
+    width: '20px',
+    height: '20px',
   },
 };
 

@@ -61,7 +61,7 @@ const styles = {
     margin: '20px',
     borderRadius: '8px',
     boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
-    background: 'linear-gradient(to right, #ff9a8b, #ffb67c)', // Same gradient as LiveStreamCard
+    background: 'linear-gradient(to right, #8BC6EC, #9599E2)', 
     textAlign: 'center' as const,
   },
   heading: {

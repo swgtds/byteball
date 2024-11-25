@@ -17,11 +17,12 @@ const StreamComingSoonPage: React.FC = () => {
         clearInterval(countdownInterval);  // Stop countdown when the time is up
         navigate('/border-gavaskar-trophy-2024');  // Redirect to the live stream page once started
       } else {
-        const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
-        setTimeLeft(`${hours}h ${minutes}m ${seconds}s`);
+        setTimeLeft(`${days}d ${hours}h ${minutes}m ${seconds}s`);
       }
     }, 1000);
 
