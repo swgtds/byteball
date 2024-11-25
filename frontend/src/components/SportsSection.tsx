@@ -22,7 +22,7 @@ const SportsSection: React.FC = () => {
               <span style={styles.liveText}>Live</span>
             </div>
           </div>
-        } redirectTo="/videos/border-gavaskar-trophy-2024.html">
+        } redirectTo="/videos/stream-ended.html">
 
           <div style={styles.thumbnailContainer}>
             <img
