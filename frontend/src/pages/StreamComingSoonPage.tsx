@@ -51,7 +51,7 @@ const styles = {
     marginTop: '20px',
     fontSize: '16px',
     cursor: 'pointer',
-    backgroundColor: '#007BFF',
+    backgroundColor: '#000000',
     color: '#fff',
     border: 'none',
     borderRadius: '5px',
