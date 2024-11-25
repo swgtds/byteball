@@ -31,6 +31,8 @@ const NoLiveStreamCard: React.FC = () => {
     <div style={styles.card}>
       <h3 style={styles.heading}>No Live Stream Available</h3>
       <p style={styles.text}>Next match: India vs Australia</p>
+      <p style={styles.text}>Test 2 (6th - 10th Dec)</p>
+      <p style={styles.text}>Adelaide Oval</p>
       <div style={styles.thumbnailContainer}>
         <img
           src="/images/ind-vs-aus.jpg"
@@ -44,8 +46,6 @@ const NoLiveStreamCard: React.FC = () => {
             Starts in: {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m{" "}
             {timeLeft.seconds}s
           </p>
-          <p style={styles.text}>Test 2 (6th - 10th Dec)</p>
-          <p style={styles.text}>Adelaide Oval</p>
         </div>
       ) : (
         <p style={styles.text}>Match has started! Check back soon for live updates.</p>
