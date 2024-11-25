@@ -6,11 +6,15 @@ interface HighlightsCardProps {
   onArrowClick: (direction: 'left' | 'right') => void;
 }
 
-const HighlightsCard: React.FC<HighlightsCardProps> = ({ highlights, currentIndex, onArrowClick }) => {
+const HighlightsCard: React.FC<HighlightsCardProps> = ({
+  highlights,
+  currentIndex,
+  onArrowClick,
+}) => {
   return (
     <div style={styles.card}>
       <h2>Test 1 Highlights</h2>
-      
+
       {/* Slider Section */}
       <div style={styles.sliderContainer}>
         <div
@@ -22,26 +26,29 @@ const HighlightsCard: React.FC<HighlightsCardProps> = ({ highlights, currentInde
             alt={`${highlights[currentIndex].day} Highlights`}
             style={styles.thumbnail}
           />
-          <p>{highlights[currentIndex].day}</p>
-          <a
-            href={highlights[currentIndex].videoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={styles.watchButton}
-          >
-            Watch Now
-          </a>
         </div>
       </div>
 
-      <div style={styles.arrowContainer}>
+      {/* Arrows and Day Number */}
+      <div style={styles.navigationContainer}>
         <button style={styles.arrowButton} onClick={() => onArrowClick('left')}>
           ←
         </button>
+        <p style={styles.dayNumber}>{highlights[currentIndex].day}</p>
         <button style={styles.arrowButton} onClick={() => onArrowClick('right')}>
           →
         </button>
       </div>
+
+      {/* Watch Now Button */}
+      <a
+        href={highlights[currentIndex].videoUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={styles.watchButton}
+      >
+        Watch Now
+      </a>
     </div>
   );
 };
@@ -57,7 +64,7 @@ const styles = {
     boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
     textAlign: 'center',
     position: 'relative',
-    background: 'linear-gradient(to right,  #8BC6EC, #9599E2)', 
+    background: 'linear-gradient(to right, #8BC6EC, #9599E2)',
   },
   sliderContainer: {
     display: 'flex',
@@ -78,7 +85,27 @@ const styles = {
     width: '100%',
     height: 'auto',
     borderRadius: '8px',
-    boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+    boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)',
+  },
+  navigationContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '20px', // Space between arrows and day number
+    marginTop: '10px',
+  },
+  dayNumber: {
+    fontSize: '1.5rem',
+    fontWeight: 'bold',
+    margin: 0,
+    color: '#333',
+  },
+  arrowButton: {
+    backgroundColor: 'transparent',
+    border: 'none',
+    fontSize: '2rem',
+    cursor: 'pointer',
+    padding: '10px',
   },
   watchButton: {
     display: 'inline-block',
@@ -89,23 +116,6 @@ const styles = {
     textDecoration: 'none',
     borderRadius: '5px',
     fontSize: '16px',
-  },
-  arrowContainer: {
-    position: 'absolute',
-    top: '50%',
-    left: '10px',
-    right: '10px',
-    width: 'calc(100% - 20px)',
-    display: 'flex',
-    justifyContent: 'space-between',
-    transform: 'translateY(-50%)',
-  },
-  arrowButton: {
-    backgroundColor: 'transparent',
-    border: 'none',
-    fontSize: '2rem',
-    cursor: 'pointer',
-    padding: '10px',
   },
 };
 
