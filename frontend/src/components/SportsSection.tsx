@@ -1,37 +1,56 @@
-// src/components/SportsSection.tsx
-import React from 'react';
+// src/components/SportsSectionCard.tsx
+import React, { useState, useEffect } from 'react';
 import LiveStreamCard from './LiveStreamCard';
+import NoLiveStreamCard from './NoLiveStreamCard';
 
 const SportsSection: React.FC = () => {
+  const [hasLiveStream, setHasLiveStream] = useState(false);
+
+  // Define the live stream time range
+  const startTime = new Date("2024-12-06T09:00:00");
+  const endTime = new Date("2024-12-11T23:00:00");
+
+  useEffect(() => {
+    const checkLiveStreamStatus = () => {
+      const now = new Date();
+      if (now >= startTime && now <= endTime) {
+        setHasLiveStream(true);
+      } else {
+        setHasLiveStream(false);
+      }
+    };
+
+    // Check immediately and set interval for live updates
+    checkLiveStreamStatus();
+    const interval = setInterval(checkLiveStreamStatus, 1000);
+
+    // Cleanup the interval on component unmount
+    return () => clearInterval(interval);
+  }, [startTime, endTime]);
+
   return (
     <div style={styles.container}>
       <h1 style={styles.heading}>Cricket Hub</h1>
       <section style={styles.section}>
         <h2>Live Streaming</h2>
-        <LiveStreamCard title={
-          <div style={styles.liveTitleContainer}>
-            <span>
-              India vs Australia (BGT) <br /> Test 1 Day 3
-            </span>
-            <div style={styles.liveBadge}>
+        {hasLiveStream ? (
+          <LiveStreamCard 
+            title="India vs Australia (BGT) Test 1 Day 3" 
+            redirectTo="/border-gavaskar-trophy-2024" // Updated redirect to the new route
+            startTime={startTime.toISOString()} 
+            endTime={endTime.toISOString()}
+          >
+            <div style={styles.thumbnailContainer}>
               <img
-                src="/images/live-icon.png" // Add a 'live' icon image to represent live status
-                alt="Live Icon"
-                style={styles.liveIcon}
+                src="/images/ind-vs-aus.jpg"
+                alt="India vs Australia Match"
+                style={styles.thumbnail}
               />
-              <span style={styles.liveText}>Live</span>
             </div>
-          </div>
-        } redirectTo="/videos/stream-ended.html">
-
-          <div style={styles.thumbnailContainer}>
-            <img
-              src="/images/ind-vs-aus.jpg" // Path to the cricket thumbnail image
-              alt="India vs Australia Match"
-              style={styles.thumbnail}
-            />
-          </div>
-        </LiveStreamCard>
+          </LiveStreamCard>
+        ) : (
+          <NoLiveStreamCard />
+        )}
       </section>
     </div>
   );
@@ -40,7 +59,7 @@ const SportsSection: React.FC = () => {
 const styles = {
   container: {
     padding: '20px',
-    textAlign: 'center',
+    textAlign: 'center' as const,
   },
   heading: {
     fontSize: '2em',
@@ -48,26 +67,6 @@ const styles = {
   },
   section: {
     margin: '20px 0',
-  },
-  liveTitleContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  liveBadge: {
-    display: 'flex',
-    alignItems: 'center',
-    marginTop: '10px',
-  },
-  liveIcon: {
-    width: '20px',
-    height: '20px',
-    marginRight: '5px',
-  },
-  liveText: {
-    fontSize: '1.2em',
-    color: 'red', // Red color for 'Live'
-    fontWeight: 'bold',
   },
   thumbnailContainer: {
     marginTop: '15px',

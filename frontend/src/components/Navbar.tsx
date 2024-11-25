@@ -29,7 +29,7 @@ const styles = {
     flex: 1,
   },
   logoText: {
-    color: '#000000', // Black color for the logo text
+    color: '#000000', 
     fontSize: '24px',
     fontWeight: 'bold',
     margin: 0,
