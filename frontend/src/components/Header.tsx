@@ -8,18 +8,18 @@ const Header: React.FC = () => {
 
     const handleScroll = () => {
       if (window.scrollY > lastScrollY) {
-        // Scrolling down, hide the header
+        
         setIsVisible(false);
       } else {
-        // Scrolling up, show the header
+        
         setIsVisible(true);
       }
-      lastScrollY = window.scrollY; // Update last scroll position
+      lastScrollY = window.scrollY; 
     };
 
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup event listener on unmount
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -55,7 +55,7 @@ const Header: React.FC = () => {
 const styles = {
   header: {
     width: '100%',
-    position: 'fixed', // Keep the header fixed at the top
+    position: 'fixed', 
     top: 0,
     left: 0,
     textAlign: 'center',
@@ -63,13 +63,13 @@ const styles = {
     color: '#333',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center', // Center elements horizontally
-    gap: '8px', // Space between text and GitHub logo
-    padding: '10px 0', // Add padding for better spacing
-    backgroundColor: 'transparent', // Set transparent background
-    zIndex: 1000, // Ensure it appears above other elements
-    boxShadow: 'none', // Remove any box shadow
-    transition: 'opacity 0.3s ease', // Smooth transition for opacity change
+    justifyContent: 'center', 
+    gap: '8px', 
+    padding: '10px 0', 
+    backgroundColor: 'transparent', 
+    zIndex: 1000, 
+    boxShadow: 'none', 
+    transition: 'opacity 0.3s ease', 
   },
   headerText: {
     fontSize: '18px',
