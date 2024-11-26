@@ -3,14 +3,14 @@ import { Routes, Route } from 'react-router-dom';
 import SportsSection from './components/SportsSection';
 import BorderGavaskarTrophyPage from './pages/BorderGavaskarTrophyPage';
 import StreamComingSoonPage from './pages/StreamComingSoonPage';
-import Header from './components/Header'; // Import the Header
+import Header from './components/Header'; 
 
 const App: React.FC = () => {
   const [selectedSport, setSelectedSport] = useState('Cricket');
 
   return (
     <div>
-      <Header /> {/* Place Header at the top */}
+      <Header /> 
       <Routes>
         <Route path="/" element={<SportsSection sport={selectedSport} />} />
         <Route
