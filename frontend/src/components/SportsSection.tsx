@@ -7,7 +7,7 @@ const SportsSection: React.FC = () => {
   const [hasLiveStream, setHasLiveStream] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const startTime = new Date("2024-11-06T09:00:00");
+  const startTime = new Date("2024-12-06T09:00:00");
   const endTime = new Date("2024-12-10T18:00:00");
 
   const highlights = [
