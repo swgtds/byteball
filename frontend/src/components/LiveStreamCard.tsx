@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const LiveStreamCard: React.FC<{
   title: string;
@@ -9,6 +10,7 @@ const LiveStreamCard: React.FC<{
 }> = ({ title, redirectTo, startTime, endTime, imageUrl }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isLive, setIsLive] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const start = new Date(startTime);
@@ -27,7 +29,7 @@ const LiveStreamCard: React.FC<{
 
   const handleThumbnailClick = () => {
     if (redirectTo) {
-      window.location.href = redirectTo;
+      navigate(redirectTo); 
     }
   };
 
@@ -47,9 +49,12 @@ const LiveStreamCard: React.FC<{
           >
             <img src={imageUrl} alt={title} style={styles.thumbnail} />
           </div>
-          <a href={redirectTo} target="_blank" rel="noopener noreferrer" style={styles.button}>
+          <button
+            onClick={handleThumbnailClick}
+            style={styles.button}
+          >
             Watch Now
-          </a>
+          </button>
         </>
       ) : (
         <p style={styles.notLive}>Stream Not Available</p>
@@ -84,6 +89,8 @@ const styles = {
     borderRadius: '5px',
     fontSize: '16px',
     marginTop: '15px',
+    border: 'none',
+    cursor: 'pointer',
   },
   thumbnailContainer: {
     marginTop: '15px',
