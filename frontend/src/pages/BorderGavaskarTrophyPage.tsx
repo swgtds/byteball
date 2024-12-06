@@ -6,8 +6,9 @@ const BorderGavaskarTrophyPage: React.FC = () => {
   const [isStreamLive, setIsStreamLive] = useState(false);
 
   // Define start and end date for the stream
-  const streamStartDate = new Date('2024-12-06T09:00:00'); 
-  const streamEndDate = new Date('2024-12-10T18:00:00'); 
+  const streamStartDate = new Date('2024-12-06T09:00:00');
+  const streamEndDate = new Date('2024-12-10T18:00:00');
+  
   useEffect(() => {
     const currentDate = new Date();
 
@@ -20,6 +21,10 @@ const BorderGavaskarTrophyPage: React.FC = () => {
       setIsStreamLive(true);
     }
   }, [navigate]);
+
+  const handleBackToHome = () => {
+    navigate('/');
+  };
 
   return (
     <div style={styles.container}>
@@ -35,6 +40,9 @@ const BorderGavaskarTrophyPage: React.FC = () => {
               title="BGT 2024"
             />
           </div>
+          <button onClick={handleBackToHome} style={styles.backButton}>
+            Back to Home
+          </button>
         </>
       ) : (
         <div style={styles.comingSoonMessage}>
@@ -58,6 +66,16 @@ const styles = {
     fontSize: '20px',
     fontWeight: 'bold',
     color: 'gray',
+  },
+  backButton: {
+    padding: '10px 20px',
+    fontSize: '16px',
+    backgroundColor: '#000000',
+    color: '#FFF',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    marginTop: '20px',
   },
 };
 
