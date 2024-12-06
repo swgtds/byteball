@@ -10,15 +10,31 @@ const LiveStreamCard: React.FC<{
 }> = ({ title, redirectTo, startTime, endTime, imageUrl }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isLive, setIsLive] = useState(false);
+  const [testNumber, setTestNumber] = useState(2); 
+  const [dayNumber, setDayNumber] = useState(1); 
   const navigate = useNavigate();
 
   useEffect(() => {
     const start = new Date(startTime);
     const end = new Date(endTime);
 
+    const updateTestAndDayNumbers = () => {
+      const now = new Date();
+
+      const totalDaysSinceStart = Math.floor((now.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
+      
+      const newTestNumber = 2 + Math.floor(totalDaysSinceStart / 5);
+
+      const newDayNumber = (totalDaysSinceStart % 5) + 1;
+
+      setTestNumber(newTestNumber);
+      setDayNumber(newDayNumber);
+    };
+
     const checkLiveStatus = () => {
       const now = new Date();
       setIsLive(now >= start && now <= end);
+      updateTestAndDayNumbers();
     };
 
     checkLiveStatus();
@@ -35,7 +51,11 @@ const LiveStreamCard: React.FC<{
 
   return (
     <div style={styles.card}>
-      <h3 style={styles.title}>{title}</h3>
+      <h3 style={styles.title}>
+        {title} 
+        <br/>
+        <span style={styles.dynamicText}>Test {testNumber} Day {dayNumber}</span>
+      </h3>
       {isLive ? (
         <>
           <div
@@ -79,6 +99,12 @@ const styles = {
     fontSize: '18px',
     fontWeight: 'bold',
     marginBottom: '15px',
+  },
+  dynamicText: {
+    fontSize: '16px',
+    fontWeight: 'bold',
+    color: '#000000',
+    marginLeft: '10px',
   },
   button: {
     display: 'inline-block',
