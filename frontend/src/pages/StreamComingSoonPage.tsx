@@ -6,7 +6,7 @@ const StreamComingSoonPage: React.FC = () => {
   const navigate = useNavigate();
   const [timeLeft, setTimeLeft] = useState<string>('');
   
-  const streamStartTime = new Date("2024-12-06T09:00:00");
+  const streamStartTime = new Date("2024-12-14T05:40:00");
 
   useEffect(() => {
     const countdownInterval = setInterval(() => {
