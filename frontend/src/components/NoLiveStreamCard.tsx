@@ -13,7 +13,7 @@ const NoLiveStreamCard: React.FC = () => {
 
   // Function to calculate the time left until the match starts
   function calculateTimeLeft() {
-    const matchStartTime = new Date("2024-12-06T09:00:00").getTime();
+    const matchStartTime = new Date("2024-12-14T05:40:00").getTime();
     const now = new Date().getTime();
     const difference = matchStartTime - now;
 
@@ -31,8 +31,8 @@ const NoLiveStreamCard: React.FC = () => {
     <div style={styles.card}>
       <h3 style={styles.heading}>No Live Stream Available</h3>
       <p style={styles.text}>Next match: India vs Australia</p>
-      <p style={styles.text}>Test 2 (6th - 10th Dec)</p>
-      <p style={styles.text}>Adelaide Oval</p>
+      <p style={{...styles.text, fontWeight: 'bold' }}>Border Gavaskar Trophy 2024</p>
+      <p style={{...styles.text, fontWeight: 'bold' }}>SAT, 14 DEC | 3rd Test | The Gabba, Brisbane</p>
       <div style={styles.thumbnailContainer}>
         <img
           src="/images/ind-vs-aus.jpg"
@@ -72,6 +72,7 @@ const styles = {
   text: {
     color: '#424242',
     fontSize: '1rem',
+    
   },
   thumbnailContainer: {
     marginTop: '15px',
