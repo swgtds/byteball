@@ -6,8 +6,8 @@ const BorderGavaskarTrophyPage: React.FC = () => {
   const [isStreamLive, setIsStreamLive] = useState(false);
 
   // Define start and end date for the stream
-  const streamStartDate = new Date('2024-12-06T09:00:00');
-  const streamEndDate = new Date('2024-12-10T18:00:00');
+  const streamStartDate = new Date('2024-12-14T05:40:00');
+  const streamEndDate = new Date('2024-12-18T13:00:00');
   
   useEffect(() => {
     const currentDate = new Date();
