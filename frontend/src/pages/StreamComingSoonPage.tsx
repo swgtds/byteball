@@ -14,8 +14,8 @@ const StreamComingSoonPage: React.FC = () => {
       const timeDiff = streamStartTime.getTime() - now.getTime();
 
       if (timeDiff <= 0) {
-        clearInterval(countdownInterval);  // Stop countdown when the time is up
-        navigate('/border-gavaskar-trophy-2024');  // Redirect to the live stream page once started
+        clearInterval(countdownInterval);  
+        navigate('/border-gavaskar-trophy-2024');
       } else {
         const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
         const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -26,7 +26,6 @@ const StreamComingSoonPage: React.FC = () => {
       }
     }, 1000);
 
-    // Cleanup the interval on component unmount
     return () => clearInterval(countdownInterval);
   }, [streamStartTime, navigate]);
 
