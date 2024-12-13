@@ -6,32 +6,42 @@ import HighlightsCard from './HighlightsCard';
 const SportsSection: React.FC = () => {
   const [hasLiveStream, setHasLiveStream] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentTest, setCurrentTest] = useState('Test 1');
 
   const startTime = new Date("2024-12-14T05:40:00");
   const endTime = new Date("2024-12-18T13:00:00");
 
-  const highlights = [
-    {
-      day: 'Day 1',
-      videoUrl: 'https://youtu.be/pmxfvy3SImg?si=zz17uX79yxlHBjP7',
-      thumbnail: 'https://i.ytimg.com/vi/pmxfvy3SImg/maxresdefault.jpg',
-    },
-    {
-      day: 'Day 2',
-      videoUrl: 'https://youtu.be/4W9YskwfTXE?si=HjGjLLb6QZIxaWI5',
-      thumbnail: 'https://i.ytimg.com/vi/4W9YskwfTXE/maxresdefault.jpg',
-    },
-    {
-      day: 'Day 3',
-      videoUrl: 'https://youtu.be/jek9RyKqmlE?si=D9D-CwZqtXwGw1DE',
-      thumbnail: 'https://i.ytimg.com/vi/jek9RyKqmlE/maxresdefault.jpg',
-    },
-    {
-      day: 'Day 4',
-      videoUrl: 'https://youtu.be/aXhDkAhgoCM?si=a5zi4khwbHkghs4_',
-      thumbnail: 'https://i.ytimg.com/vi/aXhDkAhgoCM/maxresdefault.jpg',
-    },
-  ];
+  const highlights = {
+    'Test 1': [
+      {
+        day: 'Day 1',
+        videoUrl: 'https://youtu.be/pmxfvy3SImg?si=zz17uX79yxlHBjP7',
+        thumbnail: 'https://i.ytimg.com/vi/pmxfvy3SImg/maxresdefault.jpg',
+      },
+      {
+        day: 'Day 2',
+        videoUrl: 'https://youtu.be/4W9YskwfTXE?si=HjGjLLb6QZIxaWI5',
+        thumbnail: 'https://i.ytimg.com/vi/4W9YskwfTXE/maxresdefault.jpg',
+      },
+    ],
+    'Test 2': [
+      {
+        day: 'Day 1',
+        videoUrl: 'https://youtu.be/xgiiwsJ7mOk?si=9iNxoDAyMcqj8L3e',
+        thumbnail: 'https://i.ytimg.com/vi/xgiiwsJ7mOk/maxresdefault.jpg',
+      },
+      {
+        day: 'Day 2',
+        videoUrl: 'https://youtu.be/KYEPvfPqmdE?si=1vCtKnfOna2k7awH',
+        thumbnail: 'https://i.ytimg.com/vi/KYEPvfPqmdE/maxresdefault.jpg',
+      },
+      {
+        day: 'Day 3',
+        videoUrl: 'https://youtu.be/qYmzdc-8238?si=um48YwOU5KMAqtlz',
+        thumbnail: 'https://i.ytimg.com/vi/qYmzdc-8238/maxresdefault.jpg',
+      },
+    ],
+  };
 
   useEffect(() => {
     const checkLiveStreamStatus = () => {
@@ -46,27 +56,16 @@ const SportsSection: React.FC = () => {
   }, [startTime, endTime]);
 
   const handleArrowClick = (direction: 'left' | 'right') => {
+    const currentHighlights = highlights[currentTest];
     setCurrentIndex((prevIndex) =>
       direction === 'left'
-        ? (prevIndex === 0 ? highlights.length - 1 : prevIndex - 1)
-        : (prevIndex === highlights.length - 1 ? 0 : prevIndex + 1)
+        ? (prevIndex === 0 ? currentHighlights.length - 1 : prevIndex - 1)
+        : (prevIndex === currentHighlights.length - 1 ? 0 : prevIndex + 1)
     );
   };
 
   return (
     <div style={styles.container}>
-      <style>
-        {`
-          @keyframes blinking {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
-          }
-          .blinking {
-            animation: blinking 1s infinite;
-          }
-        `}
-      </style>
       <h1 style={styles.heading}>Cricket Hub</h1>
 
       {/* Live Streaming Section */}
@@ -81,7 +80,6 @@ const SportsSection: React.FC = () => {
               <img
                 src="/images/live-icon.png"
                 alt="Live Logo"
-                className="blinking"
                 style={styles.liveLogo}
               />
             </div>
@@ -102,9 +100,11 @@ const SportsSection: React.FC = () => {
       <section style={styles.highlightsSection}>
         <h2 style={styles.subheading}>Match Highlights</h2>
         <HighlightsCard
-          highlights={highlights}
+          highlights={highlights[currentTest]}
           currentIndex={currentIndex}
           onArrowClick={handleArrowClick}
+          setCurrentTest={setCurrentTest}  
+          currentTest={currentTest}         
         />
       </section>
     </div>
