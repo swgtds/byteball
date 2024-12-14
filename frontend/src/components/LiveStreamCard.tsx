@@ -10,20 +10,27 @@ const LiveStreamCard: React.FC<{
 }> = ({ title, redirectTo, startTime, endTime, imageUrl }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isLive, setIsLive] = useState(false);
-  const [testNumber, setTestNumber] = useState(2); 
+  const [testNumber, setTestNumber] = useState(3); 
   const [dayNumber, setDayNumber] = useState(1); 
+  const [i, setI] = useState(3);
   const navigate = useNavigate();
 
   useEffect(() => {
     const start = new Date(startTime);
     const end = new Date(endTime);
 
+    const now = new Date();
+
+    if (now > end) {
+      setI((prevI) => prevI + 1); 
+    }
+
     const updateTestAndDayNumbers = () => {
       const now = new Date();
 
       const totalDaysSinceStart = Math.floor((now.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
       
-      const newTestNumber = 2 + Math.floor(totalDaysSinceStart / 5);
+      const newTestNumber = i + Math.floor(totalDaysSinceStart / 5);
 
       const newDayNumber = (totalDaysSinceStart % 5) + 1;
 
