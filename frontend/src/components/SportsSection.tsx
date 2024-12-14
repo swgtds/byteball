@@ -85,7 +85,7 @@ const SportsSection: React.FC = () => {
             </div>
             <LiveStreamCard
               title="India vs Australia"
-              redirectTo="/border-gavaskar-trophy-2024"
+              redirectTo="/live-streams"
               startTime={startTime.toISOString()}
               endTime={endTime.toISOString()}
               imageUrl="/images/ind-vs-aus.jpg"
