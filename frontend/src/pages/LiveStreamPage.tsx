@@ -5,19 +5,16 @@ const LiveStreamPage: React.FC = () => {
   const navigate = useNavigate();
   const [isStreamLive, setIsStreamLive] = useState(false);
 
-  // Define start and end date for the stream
   const streamStartDate = new Date('2024-12-14T05:40:00');
   const streamEndDate = new Date('2024-12-18T13:00:00');
   
   useEffect(() => {
     const currentDate = new Date();
 
-    // Check if the current date is within the stream time range
+    
     if (currentDate < streamStartDate || currentDate > streamEndDate) {
-      // If outside stream time, redirect to coming-soon page
       navigate('/coming-soon');
     } else {
-      // If within stream time, set isStreamLive to true
       setIsStreamLive(true);
     }
   }, [navigate]);
@@ -33,10 +30,10 @@ const LiveStreamPage: React.FC = () => {
           <h1>Border Gavaskar Trophy 2024</h1>
           <div style={styles.videoContainer}>
             <iframe
-              src="/videos/border-gavaskar-trophy-2024.html"
+              //src="/videos/border-gavaskar-trophy-2024.html"
+              src="/videos/astro-cricket.html"
               width="100%"
               height="600px"
-              frameBorder="0"
               title="BGT 2024"
             />
           </div>
