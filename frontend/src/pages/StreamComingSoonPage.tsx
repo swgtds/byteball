@@ -6,7 +6,7 @@ const StreamComingSoonPage: React.FC = () => {
   const navigate = useNavigate();
   const [timeLeft, setTimeLeft] = useState<string>('');
   
-  const streamStartTime = new Date("2024-12-14T05:40:00");
+  const streamStartTime = new Date("2024-12-26T04:30:00");
 
   useEffect(() => {
     const countdownInterval = setInterval(() => {
@@ -15,7 +15,7 @@ const StreamComingSoonPage: React.FC = () => {
 
       if (timeDiff <= 0) {
         clearInterval(countdownInterval);  
-        navigate('/border-gavaskar-trophy-2024');
+        navigate('/live-streams');
       } else {
         const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
         const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
