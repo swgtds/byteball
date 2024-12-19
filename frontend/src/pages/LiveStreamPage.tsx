@@ -5,8 +5,8 @@ const LiveStreamPage: React.FC = () => {
   const navigate = useNavigate();
   const [isStreamLive, setIsStreamLive] = useState(false);
 
-  const streamStartDate = new Date('2024-12-14T05:40:00');
-  const streamEndDate = new Date('2024-12-18T13:00:00');
+  const streamStartDate = new Date('2024-12-26T04:30:00');
+  const streamEndDate = new Date('2024-12-30T13:00:00');
   
   useEffect(() => {
     const currentDate = new Date();
