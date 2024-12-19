@@ -8,12 +8,12 @@ const NoLiveStreamCard: React.FC = () => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
 
-    return () => clearInterval(timer); // Cleanup on unmount
+    return () => clearInterval(timer); 
   }, []);
 
-  // Function to calculate the time left until the match starts
+  
   function calculateTimeLeft() {
-    const matchStartTime = new Date("2024-12-14T05:40:00").getTime();
+    const matchStartTime = new Date("2024-12-26T05:40:00").getTime();
     const now = new Date().getTime();
     const difference = matchStartTime - now;
 
@@ -24,7 +24,7 @@ const NoLiveStreamCard: React.FC = () => {
       const seconds = Math.floor((difference % (1000 * 60)) / 1000);
       return { days, hours, minutes, seconds };
     }
-    return null; // Match has started or passed
+    return null; 
   }
 
   return (
@@ -32,7 +32,7 @@ const NoLiveStreamCard: React.FC = () => {
       <h3 style={styles.heading}>No Live Stream Available</h3>
       <p style={styles.text}>Next match: India vs Australia</p>
       <p style={{...styles.text, fontWeight: 'bold' }}>Border Gavaskar Trophy 2024</p>
-      <p style={{...styles.text, fontWeight: 'bold' }}>SAT, 14 DEC | 3rd Test | The Gabba, Brisbane</p>
+      <p style={{...styles.text, fontWeight: 'bold' }}>THU, 26 DEC | 4th Test | MCG, East Melbourne</p>
       <div style={styles.thumbnailContainer}>
         <img
           src="/images/ind-vs-aus.jpg"
