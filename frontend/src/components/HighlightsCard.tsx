@@ -53,6 +53,15 @@ const HighlightsCard: React.FC<HighlightsCardProps> = ({ highlights, currentInde
         >
           Test 2
         </button>
+        <button
+          onClick={() => setCurrentTest('Test 3')}
+          style={{
+            ...styles.toggleButton,
+            ...(currentTest === 'Test 3' && styles.activeButton),
+          }}
+        >
+          Test 3
+        </button>
       </div>
 
       <h2>{currentTest} Highlights</h2>
