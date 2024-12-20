@@ -23,6 +23,16 @@ const SportsSection: React.FC = () => {
         videoUrl: 'https://youtu.be/4W9YskwfTXE?si=HjGjLLb6QZIxaWI5',
         thumbnail: 'https://i.ytimg.com/vi/4W9YskwfTXE/maxresdefault.jpg',
       },
+      {
+        day: 'Day 3',
+        videoUrl: 'https://youtu.be/jek9RyKqmlE?si=ZzWew9Qb3_TMLR3I',
+        thumbnail: 'https://i.ytimg.com/vi/jek9RyKqmlE/maxresdefault.jpg',
+      },
+      {
+        day: 'Day 4',
+        videoUrl: 'https://youtu.be/aXhDkAhgoCM?si=dKEkehYh8UHO3ErG',
+        thumbnail: 'https://i.ytimg.com/vi/aXhDkAhgoCM/maxresdefault.jpg',
+      },
     ],
     'Test 2': [
       {
@@ -39,6 +49,13 @@ const SportsSection: React.FC = () => {
         day: 'Day 3',
         videoUrl: 'https://youtu.be/qYmzdc-8238?si=um48YwOU5KMAqtlz',
         thumbnail: 'https://i.ytimg.com/vi/qYmzdc-8238/maxresdefault.jpg',
+      },
+    ],
+    'Test 3': [
+      {
+        day: 'Day 1',
+        videoUrl: 'https://youtu.be/ArA-0ktjrh8?si=6cV33IoAd43TQXhN',
+        thumbnail: 'https://i.ytimg.com/vi/ArA-0ktjrh8/maxresdefault.jpg',
       },
     ],
   };
