@@ -57,6 +57,26 @@ const SportsSection: React.FC = () => {
         videoUrl: 'https://youtu.be/ArA-0ktjrh8?si=6cV33IoAd43TQXhN',
         thumbnail: 'https://i.ytimg.com/vi/ArA-0ktjrh8/maxresdefault.jpg',
       },
+      {
+        day: 'Day 2',
+        videoUrl: 'https://youtu.be/uIooIjWwjAc?si=9eVyVCDSa_ptLTAG',
+        thumbnail: 'https://i.ytimg.com/vi/uIooIjWwjAc/maxresdefault.jpg', 
+      },
+      {
+        day: 'Day 3',
+        videoUrl: 'https://youtu.be/wtf0nTrSjAI?si=QjPKLKFFj0MXYhMr',
+        thumbnail: 'https://i.ytimg.com/vi/wtf0nTrSjAI/maxresdefault.jpg',
+      },
+      {
+        day: 'Day 4',
+        videoUrl: 'https://youtu.be/MX_GssneLfI?si=r7Xb21ljUCUWLvLE',
+        thumbnail: 'https://i.ytimg.com/vi/MX_GssneLfI/maxresdefault.jpg',
+      },
+      {
+        day: 'Day 5',
+        videoUrl: 'https://youtu.be/pGvp5Q-1Yag?si=-TaT3k78P22_h8MK',
+        thumbnail: 'https://i.ytimg.com/vi/pGvp5Q-1Yag/maxresdefault.jpg',
+      },
     ],
   };
 
