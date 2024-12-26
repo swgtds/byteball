@@ -12,7 +12,7 @@ const LiveStreamCard: React.FC<{
   const [isLive, setIsLive] = useState(false);
   const [testNumber, setTestNumber] = useState(3); 
   const [dayNumber, setDayNumber] = useState(1); 
-  const [i, setI] = useState(3);
+  const [i, setI] = useState(4);
   const navigate = useNavigate();
 
   useEffect(() => {
