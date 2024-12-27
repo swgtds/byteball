@@ -31,8 +31,8 @@ const LiveStreamPage: React.FC = () => {
           <div style={styles.videoContainer}>
             <iframe
               //src="/videos/border-gavaskar-trophy-2024.html"
-              src="/videos/astro-cricket.html"
-              //src="/videos/tnt1.html"
+              //src="/videos/astro-cricket.html"
+              src="/videos/tnt1.html"
               width="100%"
               height="600px"
               title="BGT 2024"
