@@ -5,8 +5,8 @@ const LiveStreamPage: React.FC = () => {
   const navigate = useNavigate();
   const [isStreamLive, setIsStreamLive] = useState(false);
 
-  const streamStartDate = new Date('2024-12-26T04:30:00');
-  const streamEndDate = new Date('2024-12-30T13:00:00');
+  const streamStartDate = new Date('2025-01-03T04:30:00');
+  const streamEndDate = new Date('2025-01-07T13:00:00');
   
   useEffect(() => {
     const currentDate = new Date();
@@ -30,9 +30,10 @@ const LiveStreamPage: React.FC = () => {
           <h1>Border Gavaskar Trophy 2024</h1>
           <div style={styles.videoContainer}>
             <iframe
-              //src="/videos/border-gavaskar-trophy-2024.html"
               //src="/videos/astro-cricket.html"
-              src="/videos/tnt1.html"
+              src="/videos/tnt-1.html"
+              //src="/videos/tnt-2.html"
+              //src="/videos/tnt-3.html"
               width="100%"
               height="600px"
               title="BGT 2024"
