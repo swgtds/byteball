@@ -10,9 +10,9 @@ const LiveStreamCard: React.FC<{
 }> = ({ title, redirectTo, startTime, endTime, imageUrl }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isLive, setIsLive] = useState(false);
-  const [testNumber, setTestNumber] = useState(3); 
+  const [testNumber, setTestNumber] = useState(1); 
   const [dayNumber, setDayNumber] = useState(1); 
-  const [i, setI] = useState(4);
+  const [i, setI] = useState(5);
   const navigate = useNavigate();
 
   useEffect(() => {
