@@ -125,7 +125,7 @@ const SportsSection: React.FC = () => {
               redirectTo="/live-streams"
               startTime={startTime.toISOString()}
               endTime={endTime.toISOString()}
-              imageUrl="/images/ind-vs-aus.jpg"
+              imageUrl="/images/ind-vs-aus-bumrah.jpg"
             />
           </>
         ) : (
