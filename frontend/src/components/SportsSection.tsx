@@ -8,8 +8,8 @@ const SportsSection: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentTest, setCurrentTest] = useState('Test 1');
 
-  const startTime = new Date("2024-12-26T04:30:00");
-  const endTime = new Date("2024-12-30T13:00:00");
+  const startTime = new Date("2025-01-03T04:30:00");
+  const endTime = new Date("2025-01-07T13:00:00");
 
   const highlights = {
     'Test 1': [
